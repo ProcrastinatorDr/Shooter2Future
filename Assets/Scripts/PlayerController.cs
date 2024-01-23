@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 0.1f;
+    [SerializeField] float speed = 3f;
     private Vector3 directionVector;
+
     public void OnMove(InputValue value)
     {
         directionVector = (Vector3)value.Get<Vector2>();
@@ -14,6 +15,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * directionVector);
+        transform.Translate(speed * directionVector * Time.deltaTime);
     }
 }
